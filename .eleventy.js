@@ -5,7 +5,6 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src"
       // the default output is _site
-      // yentan
     }
   }
 };
