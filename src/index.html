@@ -1,0 +1,33 @@
+---
+layout: "base"
+title: "Homepage"
+pagination:
+  data: pages
+  size: 20
+  alias: i
+---
+
+<div class="page">
+  <div class="container ">
+    <ol>
+      {%- for item in i %}
+        <li>{{ item.title }} </li>
+      {% endfor -%}
+      </ol>
+
+    <ul class="row ucol umd-3 boxed">
+      <li>
+        <h6 class="f6 spaced">Jewish students are not safe in Colombia University</h6>
+        <picture class="image" tabindex="0"><img
+            src="https://cdn.sanity.io/images/vjoh9zmj/production/20280a0878266191dd314771dcadbe02873695b2-1280x720.png?w=100&amp;fm=webp&amp;fit=max&amp;auto=format">
+        </picture>
+        <div>
+          <p>Gish galloping. The MSM were flooding the internet with how "unsafe" their students feel, to
+            cover up for a <a rel="noreferrer"
+              href="https://www.middleeasteye.net/opinion/antisemitism-hoax-drowned-out-discovery-mass-graves-gaza"
+              target="_blank">discovered mass grave in Gaza</a>. </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
