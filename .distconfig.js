@@ -9,7 +9,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: config.dir.input,
-      // output: "dist"
+      output: "dist"
     }
   };
 };
