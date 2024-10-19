@@ -20,6 +20,7 @@ export const SerializerBlock = (props) => {
 
 // mark type highlight
 export const SerializeDecorators = (props) => {
+
   switch (props.markType) {
       case 'small':
           return `<span class='smaller'>${props.children}</span>`;

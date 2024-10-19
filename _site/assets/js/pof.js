@@ -3,10 +3,10 @@
 class Modal {
 
     config = {
-        modalSelector: '.dr-modal-overlay',
+        // modalSelector: '.dr-overlay',
         closeSelector: '.dr-close',
-        titleSelector: '.dr-title',
-        modalContentSelector: '.dr-content',
+        // titleSelector: '.dr-title',
+        modalContentSelector: '.modal',
         bodyCss: 'mdl-open',
         triggerAttr: 'data-trigger'
     };
@@ -22,11 +22,10 @@ class Modal {
             if (!target.closest(this.config.modalContentSelector)) {
                 this.hide();
             }
-            // if target is close, hide
-            if (target.matches(this.config.closeSelector)) {
-                this.hide();
-            }
+
         });
+
+        this.modalElement.querySelector(this.config.closeSelector).addEventListener('click', this.hide);
 
         window.document.addEventListener('click', event => {
             const target = event.target;
@@ -42,14 +41,14 @@ class Modal {
     }
     show = () => {
 
-         this.modalElement.style.display = 'block';
+         this.modalElement.style.display = '';
          document.body.classList.add(this.config.bodyCss);
     };
 
     hide = () => {
         this.modalElement.style.display = 'none';
         document.body.classList.remove(this.config.bodyCss);
-        
+
     };
 
 
@@ -67,11 +66,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     window.addEventListener('resize', setVh);
 
     // find dialogs and attach behaviors
-    const modals = document.querySelectorAll('.dr-modal-overlay');
+    const modals = document.querySelectorAll('.dr-overlay');
 
     modals.forEach(n => {
 
-        new Modal(n);
+         (new Modal(n)).hide();
 
     });
 

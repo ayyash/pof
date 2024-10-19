@@ -1,0 +1,23 @@
+
+
+
+<div class="page">
+  <div class="container">
+
+    <div class="row-spaced spaced">
+      <div class="col md-4">
+        <h1 class="f5 weight-black allcaps spaced">Israel Pants on fire</h1>
+        <h5 class="f6 weight-normal cam openabout">What about October 7? <span class="triangle tilt"></span></h5>
+      </div>
+      <div class="col md-8">
+        {{ freetext.main }}
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="animate frombottom modal-bottom-sheet">
+{% modal "Content", ".openabout" %}
+  {{ freetext['what-about-october-7'] }}
+{% endmodal %}
+</div>

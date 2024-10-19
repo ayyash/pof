@@ -1,0 +1,30 @@
+---
+layout: base
+pagination:
+  data: posts
+  size: 1
+  alias: post
+permalink: "posts/{{ post.slug }}/"
+eleventyComputed:
+  title: "{{post.title}}"
+---
+
+<div class="singlepage">
+  <div class="container">
+      <div >
+          <div class="spaced">
+              <a href="/"><span class="triangle"></span> Israel Pants on Fire</a>
+          </div>
+          <h6 class="f6 spaced">{{ post.title }}</h6>
+          {%- if post.mainImage %}
+          <picture class="image">
+            <img src="{{ post.mainImage | sanityimage:'Medium' }}" loading="lazy"  />
+          </picture>
+          {%- endif %}
+          <div>
+            {{ post.content }}
+          </div>
+      </div>
+  </div>
+</div>
+

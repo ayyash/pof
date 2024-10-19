@@ -2,21 +2,25 @@
 layout: "base"
 title: "Homepage"
 pagination:
-  data: pages
+  data: posts
   size: 20
-  alias: i
 ---
+
+{% include './home.html' %}
+
 
 <div class="page">
   <div class="container ">
 
     <ul class="row ucol umd-3 boxed">
-      {%- for post in i %}
+      {%- for post in posts %}
       <li>
         <h6 class="f6 spaced">{{ post.title }}</h6>
         {%- if post.mainImage %}
         <picture class="image">
-          <img src="{{ post.mainImage }}"  />
+          <a href="/posts/{{ post.slug }}">
+          <img src="{{ post.mainImage | sanityimage:'Medium' }}" loading="lazy"  />
+        </a>
         </picture>
         {%- endif %}
         <div>
@@ -26,5 +30,6 @@ pagination:
       {% endfor -%}
 
     </ul>
+
   </div>
 </div>
