@@ -1,7 +1,10 @@
-// first get the dev config in
-const devConfig = require("./.eleventy.js");
 
-module.exports = function (eleventyConfig) {
+import { rmSync } from 'fs';
+rmSync('./dist', {recursive: true, force: true});
+// first get the dev config in
+import devConfig from "./.eleventy.js";
+
+export default function (eleventyConfig) {
   // pass everything from config
   const config = devConfig(eleventyConfig);
 
