@@ -1,4 +1,7 @@
 
+import { toHTML } from '@portabletext/to-html';
+import { SerializeDecorators, SerializerBlock, SerializerLink } from '../model/html.model.js';
+
 const query = `{
                 "items": *[_type == "post"] | order(publishedAt desc)
                 {
@@ -14,25 +17,26 @@ const query = `{
 
 const url = encodeURIComponent(query);
 
+const serializers = {
+  block: SerializerBlock,
+  marks: {
+    red: SerializeDecorators,
+    small: SerializeDecorators,
+    link: SerializerLink
+  }
+};
 
 export default async function () {
   try {
     const response = await fetch('https://vjoh9zmj.api.sanity.io/v2021-10-21/data/query/production?query=' + url);
     const data = await response.json();
     // transform items using portable text
-    data.result.items.forEach(item => {
-      item.body = item.body.map(block => {
-        console.log(block._type);
-        if (block._type === 'block') {
-          return block.children.map(child => child.text).join('');
-        }
-        if (block._type === 'image') {
-          return `<img src="${block.asset.url}" alt="${block.alt}" />`;
-        }
-        return '';
-      }).join('');
+    return data.result.items.map(n => {
+      return {
+        ...n,
+        content: toHTML(n.body, { serializers })
+      }
     });
-    return data.result.items;
   } catch (error) {
     console.error(error);
   }
