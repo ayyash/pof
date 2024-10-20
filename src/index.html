@@ -12,20 +12,23 @@ pagination:
 <div class="page">
   <div class="container ">
 
-    <ul class="row ucol umd-3 boxed">
+    <ul class="row ucol umd-3 boxed g-bthin">
       {%- for post in posts %}
-      <li>
-        <h6 class="f6 spaced">{{ post.title }}</h6>
-        {%- if post.mainImage %}
-        <picture class="image">
-          <a href="/posts/{{ post.slug }}">
-          <img src="{{ post.mainImage | sanityimage:'Medium' }}" loading="lazy"  />
-        </a>
-        </picture>
-        {%- endif %}
+      <li class="card card-v spaced">
         <div>
-          {{ post.content }}
+          <h6 class="f6 spaced">{{ post.title }}</h6>
+          <div>
+            {{ post.content }}
+          </div>
+
         </div>
+        {%- if post.mainImage %}
+          <picture class="image tail-v">
+            <a href="/posts/{{ post.slug }}">
+            <img src="{{ post.mainImage | sanityimage:'Medium' }}" loading="lazy"  />
+          </a>
+          </picture>
+        {%- endif %}
       </li>
       {% endfor -%}
 

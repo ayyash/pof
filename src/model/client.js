@@ -1,60 +1,19 @@
-import urlBuilder from '@sanity/image-url';
 
 
 export const Config = {
   ProjectId: 'vjoh9zmj',
   Dataset: 'production'
 };
-export const clientConfig = {
-  projectId: Config.ProjectId,
-  dataset: Config.Dataset
-};
 
 
-const builder = urlBuilder({
-  ...clientConfig
-});
+export const fetchSanity = async (query) => {
+  try {
+    const url = encodeURIComponent(query);
+    const response = await fetch(`https://${Config.ProjectId}.api.sanity.io/v2021-10-21/data/query/${Config.Dataset}?query=` + url);
+    const data = await response.json();
+    return data.result;
 
-
-export const imageUrlFor = (image, type) => {
-  let width = 50;
-  switch (type) {
-    case 'Tiny':
-      width = 100;
-      break;
-    case 'Small':
-      width = 200;
-      break;
-    case 'Medium':
-      width = 300;
-      break;
-    case 'Large':
-      width = 500;
-      break;
-    case 'Original':
-      width = 1300; // guessing
-      break;
+  } catch (error) {
+    console.error(error);
   }
-
-  return builder.image(image).format('webp').auto('format').fit('max').width(width).url().toString();
-
 }
-
-
-export const SerializerImage = (props) => {
-  // rebuild options, using props.options, and figure out the format
-  // leave as empty if animated, else make wepb
-  const urlOptions = clientConfig;
-  const options = {
-    ...props.value,
-     fit: 'min',
-     auto: 'format',
-     fm: 'webp',
-  }
-
-  const fullUrl =  urlBuilder(urlOptions).image(options).toString();
-
-  const img = `<img src="${ fullUrl }" class="content-image"
-     loading="lazy" />`;
-  return `<figure>${ img }</figure>`;
-};

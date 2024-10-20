@@ -54,7 +54,7 @@ button {
   font-weight: 1000;
   font-size: 18cqw;
   position: sticky;
-  inset-inline: -2cqw 0;
+  margin-inline-start: -2cqw;
   inset-block-start: -10cqw;
   line-height: 1;
   letter-spacing: -2cqw;
@@ -81,7 +81,8 @@ button {
     aspect-ratio: 3/4;
     inset: 0;
   }
-  p {
+  .total {
+    p { margin: 0; }
     margin: 1rem;
     position: absolute;
     inset-inline-start: 0;
@@ -112,6 +113,3 @@ button {
   vertical-align: text-top;
 }
 
-.columns {
-  columns: 3;
-}

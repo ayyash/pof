@@ -1,5 +1,5 @@
 
-import { imageUrlFor } from './src/model/client.js';
+import { imageUrlFor } from './src/model/image.model.js';
 
 export default function (eleventyConfig) {
   // this is a must, pass through your assets

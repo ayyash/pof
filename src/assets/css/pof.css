@@ -44,8 +44,8 @@
   --sh-btn-padding-h: 1.6rem;
   --sh-btn-padding-v: 1.2rem;
   --sh-btn-sm-padding: 0.8rem;
-  --sh-radius: 3px;
-  --sh-label-radius: 3px;
+  --sh-radius: 0;
+  --sh-label-radius: 0;
   --sh-btn-diff-bg: #f31109;
   --sh-label-padding: 0.25rem 0.8rem;
   --sh-mainpad: 2.4rem;
@@ -1853,7 +1853,7 @@ button {
   font-weight: 1000;
   font-size: 18cqw;
   position: sticky;
-  inset-inline: -2cqw 0;
+  margin-inline-start: -2cqw;
   inset-block-start: -10cqw;
   line-height: 1;
   letter-spacing: -2cqw;
@@ -1880,7 +1880,7 @@ button {
   aspect-ratio: 3/4;
   inset: 0;
 }
-.sideimage p {
+.sideimage .total {
   margin: 1rem;
   position: absolute;
   inset-inline-start: 0;
@@ -1888,7 +1888,10 @@ button {
   inset-block-end: 0;
   mix-blend-mode: multiply;
 }
-.sideimage p .red {
+.sideimage .total p {
+  margin: 0;
+}
+.sideimage .total .red {
   display: block;
   font-size: 3rem;
   font-weight: 900;
@@ -1906,9 +1909,6 @@ button {
 .tilt {
   transform: rotate(45deg);
   vertical-align: text-top;
-}
-.columns {
-  columns: 3;
 }
 .forprint {
   display: none;
