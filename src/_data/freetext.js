@@ -1,5 +1,6 @@
 
 import { toHTML } from '@portabletext/to-html';
+import { SerializerImage } from '../model/client.js';
 import { SerializeDecorators, SerializerBlock, SerializerLink } from '../model/html.model.js';
 
 const query = `*[_type == "content"]
@@ -13,6 +14,9 @@ const url = encodeURIComponent(query);
 
 const serializers = {
   block: SerializerBlock,
+  types: {
+    image: SerializerImage
+  },
   marks: {
     red: SerializeDecorators,
     small: SerializeDecorators,

@@ -15,6 +15,8 @@ export const SerializerBlock = (props) => {
       return `<div class="quoted ${_css}"><blockquote>${props.children}</blockquote></div>`;
   }
 
+
+
   return `<p>${props.children}</p>`;
 };
 
