@@ -9,7 +9,7 @@ export default function (eleventyConfig) {
   const config = devConfig(eleventyConfig);
 
   // set different output, you can deep clone first but it's too much work
-  // TODO: add diferent html, sigggee3
+  // TODO: add diferent html, then i go to lunch
   return {
     dir: {
       input: config.dir.input,
