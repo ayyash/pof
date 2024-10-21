@@ -37,3 +37,13 @@ export const SerializerLink = (props) => {
   // add rel
   return `<a rel="noreferrer" href="${props.value.href}" target="_blank">${props.children}</a>`;
 };
+
+
+
+export const StripMark = ({ value, children }) => {
+  // catch onclick of these to reroute
+  return children;
+};
+export const StripAll = (props) => {
+  return props.node.children.map(n => n.text).join(' ');
+};
