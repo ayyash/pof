@@ -26,6 +26,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("sanityimage", function(image, type){
     return imageUrlFor(image, type);
   });
+  eleventyConfig.addFilter("escape", function(text){
+    // remove double quotes
+    return text.replace(/"/g, '');
+  });
 
   return {
     dir: {

@@ -2,7 +2,11 @@
 
 export const Config = {
   ProjectId: 'vjoh9zmj',
-  Dataset: 'production'
+  Dataset: 'production',
+  TweetLen: 280,
+  Hashtag: '#Gaza',
+  Url: 'https://israelpantsonfire.com/',
+  TwitterLink: 'https://twitter.com/intent/tweet?text=$0'
 };
 
 

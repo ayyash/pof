@@ -34,25 +34,25 @@
   <!----------------->
   <title>{{ title }} - Israel pants on fire</title>
   <meta name="author" content="POF">
-  <link rel="canonical" href="https://israelpantsonfire.com/">
+  <link rel="canonical" href="https://israelpantsonfire.com{{ page.url }}">
 
 
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
+  <meta property="og:title" content="{{ title | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
   <meta property="og:image" content="{{ img }}">
   <meta property="og:site_name" content="Israel Pants on Fire">
-  <meta property="og.type" content="website">
-  <meta property="description" content="{{ description }}">
+  <meta property="og.type" content="summary">
+  <meta property="description" content="{{ description | escape }}">
 
-  <meta property="og:url" content="https://israelpantsonfire.com/{{ page.url }}">
+  <meta property="og:url" content="https://israelpantsonfire.com{{ page.url }}">
   <meta property="og:locale" content="en_GB">
 
 
   <meta property="twitter:site" content="@pants_fire52187">
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   <meta property="twitter:creator" content="@pants_fire52187">
-  <meta property="twitter:description" content="{{ description }}">
-  <meta property="twitter:title" content="{{ title }}">
+  <meta property="twitter:description" content="{{ description | escape }}">
+  <meta property="twitter:title" content="{{ title | escape}}">
   <meta property="twitter:image" content="{{ img }}">
 
 
