@@ -31,7 +31,7 @@ export const NewPost = (data) => {
     const title = n.title.replace(/"/g, '′');
     const _url = Config.Url + `posts/${n.slug}/`;
     let tweet = `${title} ${Config.Hashtag} ${_url} - `;
-    const desc = toHTML(n.body, { components: stripSerializer }).replace('"', '′').slice(0, Config.TweetLen - tweet.length);
+    const desc = toHTML(n.body, { components: stripSerializer }).replace('"', '′').slice(0, Config.TweetLen - Config.TweetLinkLen);
     tweet = `${tweet}${desc}`;
 
     const twitterLink = Config.TwitterLink.replace('$0', encodeURIComponent(tweet))
